@@ -1,6 +1,5 @@
 <?php
 
-  include_once ("celular.php");
   class usuario{
     private $nombre;
     private $mail;
@@ -8,10 +7,10 @@
     private $celular;
 
     public function __construct($nombre, $mail, $pass, celular $celular){
-      $this->nombre = $nombre;
-      $this->mail = $mail;
-      $this->pass = $pass;
-      $this->celular = $celular;
+      $this->setNombre($nombre);
+      $this->setMail($mail);
+      $this->setPass($pass);
+      $this->setCelular($celular);
     }
 
     public function saludar(){
@@ -23,7 +22,7 @@
     }
 
     public function setNombre($nombre){
-      return $this->nombre = $nombre;
+      $this->nombre = $nombre;
     }
 
     public function getMail(){
@@ -31,7 +30,7 @@
     }
 
     public function setMail($mail){
-      return $this->mail = $mail;
+      $this->mail = $mail;
     }
 
     public function getPass(){
@@ -39,11 +38,11 @@
     }
 
     private function encriptarPass(string $pass){
-      return hash($pass, PASSWORD_DEFAULT);
+      return password_hash($pass, PASSWORD_DEFAULT);
     }
 
     public function setPass($pass){
-      return $this->pass = encriptarPass($pass);
+      $this->pass = $this->encriptarPass($pass);
     }
 
     public function getCelular(){
@@ -51,13 +50,14 @@
     }
 
     public function setCelular(celular $celular){
-      return $this->celular = $celular;
+      $this->celular = $celular;
     }
 
-    public function mostrarTelefono(celular $celular){
-      echo "Teléfono - Marca: " . $this->marca . " " . $this->modelo;
-      if ($this->marca = "Apple"){
-        echo " y soy fan de los iphones";
+    public function mostrarTelefono(){
+      if ($this->getCelular()->getMarca() == "Apple"){
+        return "Teléfono - Marca: " . $this->getCelular()->getMarca() . " " . $this->getCelular()->getModelo() . " y soy fan de los iphones";
+      } else {
+        return "Teléfono - Marca: " . $this->getCelular()->getMarca() . " " . $this->getCelular()->getModelo();
       };
     }
 

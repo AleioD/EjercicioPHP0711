@@ -7,13 +7,13 @@
     private $numero;
 
     public function __construct($marca, $modelo, $proveedor, $numero){
-      $this->marca = $marca;
-      $this->modelo = $modelo;
-      $this->proveedor = $proveedor;
-      $this->numero = $numero;
+      $this->setMarca($marca);
+      $this->setModelo($modelo);
+      $this->setProveedor($proveedor);
+      $this->setNumero($numero);
     }
 
-    public function getMarca($marca){
+    public function getMarca(){
       return $this->marca;
     }
 
@@ -21,7 +21,7 @@
       $this->marca = $marca;
     }
 
-    public function getModelo($modelo){
+    public function getModelo(){
       return $this->modelo;
     }
 
@@ -29,7 +29,7 @@
       return $this->modelo = $modelo;
     }
 
-    public function getProveedor($proveedor){
+    public function getProveedor(){
       return $this->proveedor;
     }
 
@@ -37,7 +37,7 @@
       return $this->proveedor = $proveedor;
     }
 
-    public function getNumero($numero){
+    public function getNumero(){
       return $this->numero;
     }
 

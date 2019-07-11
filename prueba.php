@@ -1,6 +1,7 @@
 <?php
 
-  include ("usuario.php");
+  require_once ("usuario.php");
+  require_once ("celular.php");
 
   /*$usuario1 = new usuario();
   $usuario1->nombre = "Alejandro";
@@ -32,7 +33,7 @@
   var_dump($usuario2);
   echo "</pre><br>";
 
-  mostrarTelefono($celular1);
+  echo $usuario1->mostrarTelefono();
   /*echo $usuario1->mail . "<br>";
   echo $usuario2->mail . "<br>";
 
