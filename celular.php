@@ -1,6 +1,6 @@
 <?php
 
-  class celular{
+  class Celular{
     private $marca;
     private $modelo;
     private $proveedor;
